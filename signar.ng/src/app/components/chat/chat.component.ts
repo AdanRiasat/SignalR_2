@@ -63,6 +63,9 @@ export class ChatComponent  {
       this.selectedChannel = null;
     });
 
+    this.hubConnection.on('MostPopularChannel', (amount: number) => {
+      alert("Vous etes dans you get the point : " + amount)
+    })
     // On se connecte au Hub
     this.hubConnection
       .start()

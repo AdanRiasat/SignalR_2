@@ -131,7 +131,7 @@ namespace signalr.backend.Hubs
                 string groupName = CreateChannelGroupName(channelId);
                 Channel channel = _context.Channel.Find(channelId);
                 channel.NbMessages++;
-                _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
                 await Clients.Group(groupName).SendAsync("NewMessage", "[" + channel.Title + "] " + message);
             }
             else
